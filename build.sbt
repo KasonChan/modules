@@ -35,7 +35,7 @@ lazy val root = project.in(file("."))
   .settings(moduleName := name)
   .settings(allSettings)
   .settings(noPublish)
-  .aggregate(core, test)
+  .aggregate(core, test, docs)
   .dependsOn(core)
 
 lazy val core = project
