@@ -7,4 +7,6 @@ object Test {
 
   def apply(): String = "This is module-core"
 
+  val const = "core"
+
 }

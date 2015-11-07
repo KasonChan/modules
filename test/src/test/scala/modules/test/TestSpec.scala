@@ -7,8 +7,8 @@ import org.scalatest.{FlatSpec, Matchers}
  */
 class TestSpec extends FlatSpec with Matchers {
 
-  "Test" should "= This is module-test" in {
-    Test.apply() shouldBe "This is module-test"
+  "Test" should "= This is module-test core" in {
+    Test.apply() shouldBe "This is module-test core"
   }
 
 }
