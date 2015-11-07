@@ -49,3 +49,11 @@ lazy val test = project
     libraryDependencies ++= testDependencies
   )
   .dependsOn(core)
+
+lazy val docs = project
+  .settings(moduleName := name + "-" + "docs")
+  .settings(allSettings)
+  .settings(
+    libraryDependencies ++= testDependencies
+  )
+  .dependsOn(core)
