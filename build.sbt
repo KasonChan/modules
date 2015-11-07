@@ -35,7 +35,7 @@ lazy val root = project.in(file("."))
   .settings(moduleName := name)
   .settings(allSettings)
   .settings(noPublish)
-  .aggregate(core, test)
+  .aggregate(core, test, docs)
   .dependsOn(core)
 
 lazy val core = project
@@ -44,6 +44,14 @@ lazy val core = project
 
 lazy val test = project
   .settings(moduleName := name + "-" + "test")
+  .settings(allSettings)
+  .settings(
+    libraryDependencies ++= testDependencies
+  )
+  .dependsOn(core)
+
+lazy val docs = project
+  .settings(moduleName := name + "-" + "docs")
   .settings(allSettings)
   .settings(
     libraryDependencies ++= testDependencies
