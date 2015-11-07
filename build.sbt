@@ -24,7 +24,7 @@ val baseSettings = Seq(
   scalacOptions in(Compile, console) := compilerOptions
 )
 
-lazy val noPublish = Seq(
+lazy val noPublishSettings = Seq(
   publish := {},
   publishLocal := {}
 )
@@ -33,18 +33,18 @@ lazy val allSettings = baseSettings ++ buildSettings
 
 lazy val root = project.in(file("."))
   .settings(moduleName := name)
-  .settings(allSettings)
-  .settings(noPublish)
+  .settings(allSettings: _*)
+  .settings(noPublishSettings: _*)
   .aggregate(core, test, docs)
   .dependsOn(core)
 
 lazy val core = project
   .settings(moduleName := name + "-" + "core")
-  .settings(allSettings)
+  .settings(allSettings: _*)
 
 lazy val test = project
   .settings(moduleName := name + "-" + "test")
-  .settings(allSettings)
+  .settings(allSettings: _*)
   .settings(
     libraryDependencies ++= testDependencies
   )
@@ -52,7 +52,7 @@ lazy val test = project
 
 lazy val docs = project
   .settings(moduleName := name + "-" + "docs")
-  .settings(allSettings)
+  .settings(allSettings: _*)
   .settings(
     libraryDependencies ++= testDependencies
   )
